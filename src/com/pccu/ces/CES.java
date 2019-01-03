@@ -22,7 +22,28 @@ public class CES extends Student {
 		/*
 		 * Your Work !
 		 * */
-	}
+		list = new ArrayList<Student>();
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(new File(filepath));
+			while (scanner.hasNext()) {
+				Student s = new Student();
+				s.setId(scanner.nextInt());
+				s.setName(scanner.next());
+				s.setChi(scanner.nextInt());
+				s.setEng(scanner.nextInt());
+				s.setMath(scanner.nextInt());
+				s.mAvg = scanner.nextFloat();
+				list.add(s);
+			
+			}
+			scanner.close();
+		
+	    }catch (FileNotFoundException e) 
+		{
+		  e.printStackTrace();
+		 }
+		}
 	
 	private static void WriteFile (ArrayList<Student> list, String filepath) {
 		/*
